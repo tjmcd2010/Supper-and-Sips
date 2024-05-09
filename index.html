@@ -1,23 +1,121 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supper&Sips!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Supper and Sips! 
-      </h1>
-      <p class="subtitle">
-        Plan your night with a couple clicks!
-      </p>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!--team logo and for nav bar-->
+        <div class="navbar-logo">
+        <a class="navbar-item">
+            <img src="images/logo.png" alt="Logo" style="max-height: 70px" class="py-2 px-2">
+      </a>
     </div>
-  </section>
-<!--JS File-->
-<script src="./assets/js/script.js"></script>   
+
+    <div class="nav bar header">
+        <div class="navbar-end">
+            <a class="navbar-item">Supper&Sips!</a>
+    </div>
+</nav>
+
+<!--Cards-->
+<section class="section">
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">SUPPER!</p>
+        <div class="card-content">
+            <input class="input" type="text" placeholder="Search for your meal!">
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <a href="#" class="card-footer-item">SEARCH</a>
+        </footer>
+      </div>
+        
+
+      <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">SIPS!</p>
+        <div class="card-content">
+            <input class="input" type="text" placeholder="Search for your Cocktail!">
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <a href="#" class="card-footer-item">SEARCH</a>
+        </footer>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--MODALS-->
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">SUPPER</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      RECIPE GOES HERE
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <button class="button is-success">SEARCH</button>
+        <button class="button">CANCEL</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">SIPS</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      RECIPE GOES HERE
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <button class="button is-success">SEARCH</button>
+        <button class="button">CANCEL</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+        <p>&copy; 2024 We Deserve Arrays!</p>
+    </footer>
+    <script src="index.js"></script>
 </body>
 </html>
