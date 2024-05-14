@@ -2,7 +2,7 @@
 An app to randomly choose dinner and drink recipes.
 
 ## Description
-Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "chicken recepies" or just "pasta recepies" or even complicated dishes like "low fat vegan cupcakes"
+Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "chicken recepies" or just "pasta recepies" or even complicated dishes like "low fat vegan cupcakes".
 
 ## Getting Started
 

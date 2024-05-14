@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supper&Sips!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body style="background-color: #f2efea;">
 <body>
@@ -13,7 +13,7 @@
         <!--team logo and for nav bar-->
         <div class="navbar-logo">
         <a class="navbar-item">
-            <img src="SUpper&Sips.png" alt="Logo" style="max-height: 130px" class="py-2 px-2">
+            <img src="./assets/images/SUpper&Sips.png" alt="Logo" style="max-height: 130px" class="py-2 px-2">
       </a>
     </div>
 
@@ -25,7 +25,7 @@
 
 <!--Cards-->
 <section class="section">
-    <div class="card">
+  <form id="meals-search-form">
         <header class="card-header">
             <p class="card-header-title">SUPPER!🥑</p>
         <div class="card-content">
@@ -37,10 +37,10 @@
                 Search
               </button>
         </footer>
-      </div>
+      </form>
         
 
-      <div class="card">
+      <form id="cocktail-search-form">
         <header class="card-header">
             <p class="card-header-title">SIPS!🍹</p>
         <div class="card-content">
@@ -52,21 +52,7 @@
                 Search
               </button>
         </footer>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      </form>
 
 <!--MODALS-->
 <div id="modal-supper" class="modal">
@@ -76,7 +62,7 @@
       <p class="modal-card-title">SUPPER</p>
       <button class="delete" aria-label="close"></button>
     </header>
-    <section class="modal-card-body">
+    <section class="modal-card-body" id = "meal-recepies">
       RECIPE GOES HERE
     </section>
     <footer class="modal-card-foot">       
@@ -115,6 +101,7 @@
 <footer>
         <p>&copy; 2024 We Deserve Arrays!</p>
     </footer>
-    <script src="index.js"></script>
+    <!--JS File-->
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
