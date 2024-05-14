@@ -1,99 +1,117 @@
-/*Body*/
-.body {
-    color: #66d7d1 !important;
-    font-family: Arial, Helvetica, sans-serif;
-}
-/*NavBar*/
+
+
+
 .navbar {
     display: flex;
     background-color: #66d7d1;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-}
-a.navbar-item {
+  }
+  a.navbar-item {
     color: #fc7753;
-}
-/*User Inputs*/
-.input.input.color {
-    color: black;
-    background-color: #66d7d1;
-}
-.input.input {
-    color: black;
-    background-color: #66d7d1;
-}
-::-webkit-input-placeholder {
-    color: #403d58 !important;
-}
-/*Button to trigger the modal form*/
-button.js-modal-trigger {
+  }
+  
+  .input.input.color {
+      color: black;
+      background-color: #66d7d1;
+  }
+  
+  .input.input {
+     color: black;
+     background-color: #66d7d1;
+  } 
+  
+  ::-webkit-input-placeholder {
+      color: #403d58 !important;
+    }
+  
+  .body {
+    color: #66d7d1 !important;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  button.js-modal-trigger {
     background-color: #fc7753;
     color: #fefefe;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-}
-/*Footer*/
-.footer {
-    color: #66d7d1 !important;
-}
-/*card*/
-.card {
-    display: flexbox;
-    align-items: flex-end;
-    background-color: #fc7753;
-    max-width: ;
-}
-/*Section*/
-.section {
+  }
+  
+  .footer {
+      color: #66d7d1 !important;
+  }
+  
+  .card {
+      display: flexbox;
+      align-items: flex-end;
+      background-color: #fc7753;
+      
+  }
+  
+  
+  .section {
     padding: 20px;
     color-scheme: blue;
-}
-/*Modal*/
-.modal-background {
-    position: fixed;
+  }
+  
+  
+  .modal-background{
+      position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.4);
-}
-.modal {
-    display: none;
-    /* Hide the modal by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-}
-.modal-card-body {
-    background-color: #66d7d1;
-    color: #fc7753
-}
-.modal-card-head {
+  }
+  
+  .modal {
+      display: none; /* Hide the modal by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      
+  
+    }
+    
+    .modal-card-body {
+      background-color: #66d7d1;
+      color:#fc7753
+    }
+  
+  .modal-card-head {
     background-color: #fc7753;
-    color: #fc7753
-}
-.modal-card-foot {
+    color:#fc7753
+  }
+  
+  .modal-card-foot {
     background-color: #fefefe;
-    color: #fc7753
-}
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close:hover {
-    color: black;
-    text-decoration: none;
-}
-/*Footer*/
-.footer {
-    background-color: #66d7d1;
-    padding: 20px;
-    text-align: center;
+    color:#fc7753
+  }
+    
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+    
+  .close:hover {
+      color: black;
+      text-decoration: none;
+  }
+  
+  
+  .footer {
+      background-color: #66d7d1;
+      padding: 20px;
+      text-align: center;
+  }
+
+  .hover-cursor {
+    cursor: pointer;
 }

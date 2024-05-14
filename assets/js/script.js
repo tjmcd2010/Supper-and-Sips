@@ -1,84 +1,161 @@
-//get elemnts from the html
-const mealSearchFormEl = document.querySelector("#meals-search-form");
-const cocktailSearchFormEl = document.querySelector("#cocktail-search-form");
-
 document.addEventListener('DOMContentLoaded', () => {
-	// Functions to open and close a modal
-	function openModal($el) {
-	  $el.classList.add('is-active');
-	}
-  
-	function closeModal($el) {
-	  $el.classList.remove('is-active');
-	}
-  
-	function closeAllModals() {
-	  (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-		closeModal($modal);
-	  });
-	}
-  
-	// Add a click event on buttons to open a specific modal
-	(document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-	  const modal = $trigger.dataset.target;
-	  const $target = document.getElementById(modal);
-  
-	  $trigger.addEventListener('click', () => {
-		openModal($target);
-	  });
-	});
-  
-	// Add a click event on various child elements to close the parent modal
-	(document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-	  const $target = $close.closest('.modal');
-  
-	  $close.addEventListener('click', () => {
-		closeModal($target);
-	  });
-	});
-  
-	// Add a keyboard event to close all modals
-	document.addEventListener('keydown', (event) => {
-	  if(event.key === "Escape") {
-		closeAllModals();
-	  }
-	});
-  });
-//get recepies by ingredient
-const handleFormSubmit = function (event) {
-    event.preventDefault();
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=a`;
-    //const APIKey = "c01e24caedmsh48fd839b55c5d03p1e99bajsn2750a896533a";
-    fetch(url)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(data=> displayFoods(data))
-        const displayFoods = foods =>{
-            const foodItemsDiv = document.getElementById('meal-recepies');
-            
-            foods.meals.forEach(meal=>{
-            
-                const foodDiv = document.createElement('div');
-            
-                foodDiv.className = 'meal';
-                const foodInfo = `
-                <h3>${meal.strMeal}</h3>
-            
-                `;
-                foodDiv.innerHTML = foodInfo;
-                foodItemsDiv.appendChild(foodDiv);
-            });
-            }
-};
-//Function to adda event listeners to submit search and clicking city search buttons
-function addEventListeners() {
-    mealSearchFormEl.addEventListener("submit", handleFormSubmit);
-    // cocktailSearchFormEl.addEventListener("click", handleFormSubmit);
-}
-//intitialising and calling the event listener functions
-function init() {
-    addEventListeners()
-}
+    function openModal($el) {
+        $el.classList.add('is-active');
+    }
 
-init();
+    function closeModal($el) {
+        $el.classList.remove('is-active');
+    }
+
+    function closeAllModals() {
+        (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+            closeModal($modal);
+        });
+    }
+
+    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+        const modal = $trigger.dataset.target;
+        const $target = document.getElementById(modal);
+
+        $trigger.addEventListener('click', () => {
+            openModal($target);
+        });
+    });
+
+    (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+        const $target = $close.closest('.modal');
+
+        $close.addEventListener('click', () => {
+            closeModal($target);
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === "Escape") {
+            closeAllModals();
+        }
+    });
+
+    function fetchRandomMeal() {
+        fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+            .then(response => response.json())
+            .then(data => {
+                const meal = data.meals[0];
+                const mealCard = document.getElementById('meal-card');
+                const mealImage = document.getElementById('meal-image');
+                const mealName = document.getElementById('meal-name');
+
+                mealImage.src = meal.strMealThumb;
+                mealName.textContent = meal.strMeal;
+                mealCard.style.display = 'block';
+                mealCard.dataset.id = meal.idMeal;
+            })
+            .catch(error => console.error('Error fetching random meal:', error));
+    }
+
+    function fetchMealDetails(id) {
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.meals) {
+                    const meal = data.meals[0];
+                    const mealDetails = document.getElementById('meal-details');
+                    mealDetails.innerHTML = `
+                        <h2>${meal.strMeal}</h2>
+                        <p><strong>Category:</strong> ${meal.strCategory}</p>
+                        <p><strong>Area:</strong> ${meal.strArea}</p>
+                        <p><strong>Instructions:</strong> ${meal.strInstructions}</p>
+                        <h3>Ingredients:</h3>
+                        <ul>
+                            ${getIngredients(meal).map(ingredient => `
+                                <li>
+                                    <img src="https://www.themealdb.com/images/ingredients/${ingredient.split(' - ')[0].trim()}.png" alt="${ingredient}" style="width: 50px; height: 50px; vertical-align: middle;">
+                                    ${ingredient}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `;
+                    openModal(document.getElementById('modal-meal-details'));
+                }
+            })
+            .catch(error => console.error('Error fetching meal details:', error));
+    }
+
+    function fetchRandomCocktail() {
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+            .then(response => response.json())
+            .then(data => {
+                const cocktail = data.drinks[0];
+                const cocktailCard = document.getElementById('cocktail-card');
+                const cocktailImage = document.getElementById('cocktail-image');
+                const cocktailName = document.getElementById('cocktail-name');
+
+                cocktailImage.src = cocktail.strDrinkThumb;
+                cocktailName.textContent = cocktail.strDrink;
+                cocktailCard.style.display = 'block';
+                cocktailCard.dataset.id = cocktail.idDrink;
+            })
+            .catch(error => console.error('Error fetching random cocktail:', error));
+    }
+
+    function fetchCocktailDetails(id) {
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.drinks) {
+                    const cocktail = data.drinks[0];
+                    const cocktailDetails = document.getElementById('cocktail-details');
+                    cocktailDetails.innerHTML = `
+                        <h2>${cocktail.strDrink}</h2>
+                        <p><strong>Category:</strong> ${cocktail.strCategory}</p>
+                        <p><strong>Glass:</strong> ${cocktail.strGlass}</p>
+                        <p><strong>Instructions:</strong> ${cocktail.strInstructions}</p>
+                        <h3>Ingredients:</h3>
+                        <ul>
+                            ${getCocktailIngredients(cocktail).map(ingredient => `
+                                <li>
+                                    <img src="https://www.thecocktaildb.com/images/ingredients/${ingredient.split(' - ')[0].trim()}.png" alt="${ingredient}" style="width: 50px; height: 50px; vertical-align: middle;">
+                                    ${ingredient}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `;
+                    openModal(document.getElementById('modal-cocktail-details'));
+                }
+            })
+            .catch(error => console.error('Error fetching cocktail details:', error));
+    }
+
+    function getIngredients(item) {
+        let ingredients = [];
+        for (let i = 1; i <= 20; i++) {
+            if (item[`strIngredient${i}`]) {
+                ingredients.push(`${item[`strIngredient${i}`]} - ${item[`strMeasure${i}`]}`);
+            }
+        }
+        return ingredients;
+    }
+
+    function getCocktailIngredients(item) {
+        let ingredients = [];
+        for (let i = 1; i <= 15; i++) {
+            if (item[`strIngredient${i}`]) {
+                ingredients.push(`${item[`strIngredient${i}`]} - ${item[`strMeasure${i}`]}`);
+            }
+        }
+        return ingredients;
+    }
+
+    document.getElementById('random-meal-btn').addEventListener('click', fetchRandomMeal);
+    document.getElementById('random-cocktail-btn').addEventListener('click', fetchRandomCocktail);
+
+    document.getElementById('meal-card').addEventListener('click', (event) => {
+        const mealId = event.currentTarget.dataset.id;
+        fetchMealDetails(mealId);
+    });
+
+    document.getElementById('cocktail-card').addEventListener('click', (event) => {
+        const cocktailId = event.currentTarget.dataset.id;
+        fetchCocktailDetails(cocktailId);
+    });
+});

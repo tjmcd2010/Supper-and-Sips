@@ -5,103 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supper&Sips!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body style="background-color: #f2efea;">
-<body>
     <nav class="navbar">
-        <!--team logo and for nav bar-->
         <div class="navbar-logo">
-        <a class="navbar-item">
-            <img src="./assets/images/SUpper&Sips.png" alt="Logo" style="max-height: 130px" class="py-2 px-2">
-      </a>
+            <a class="navbar-item">
+                <img src="assets/SUpper&Sips.png" alt="Logo" style="max-height: 130px" class="py-2 px-2">
+            </a>
+        </div>
+        <div class="navbar header">
+            <div class="navbar-end">
+                <a class="navbar-item">🍹&🥑</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">SUPPER!🥑</p>
+            </header>
+            <div class="card-content">
+                <button id="random-meal-btn" class="button">Get a Random Meal</button>
+                <div id="meal-card" class="card mt-4" style="display: none;">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img id="meal-image" src="" alt="Meal Image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <p id="meal-name" class="title is-4"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">SIPS!🍹</p>
+            </header>
+            <div class="card-content">
+                <button id="random-cocktail-btn" class="button">Get a Random Cocktail</button>
+                <div id="cocktail-card" class="card mt-4" style="display: none;">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img id="cocktail-image" src="" alt="Cocktail Image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <p id="cocktail-name" class="title is-4"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--MODALS-->
+    <div id="modal-meal-details" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Meal Details</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body" id="meal-details">
+            </section>
+            <footer class="modal-card-foot">
+            </footer>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
-    <div class="nav bar header">
-        <div class="navbar-end">
-            <a class="navbar-item">🍹&🥑</a>
+    <div id="modal-cocktail-details" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Cocktail Details</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body" id="cocktail-details">
+            </section>
+            <footer class="modal-card-foot">
+            </footer>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
-</nav>
 
-<!--Cards-->
-<section class="section">
-  <form id="meals-search-form">
-        <header class="card-header">
-            <p class="card-header-title">SUPPER!🥑</p>
-        <div class="card-content">
-            <input class="input" type="text" placeholder="Search for your meal!">
-        </div>
-        <footer class="card-footer">
-          <p class="card-footer-item">
-            <button class="js-modal-trigger" data-target="modal-supper">
-                Search
-              </button>
-        </footer>
-      </form>
-        
-
-      <form id="cocktail-search-form">
-        <header class="card-header">
-            <p class="card-header-title">SIPS!🍹</p>
-        <div class="card-content">
-            <input class="input" type="text" placeholder="Search for your Cocktail">
-        </div>
-        <footer class="card-footer">
-          <p class="card-footer-item">
-            <button class="js-modal-trigger" data-target="modal-sip">
-                Search
-              </button>
-        </footer>
-      </form>
-
-<!--MODALS-->
-<div id="modal-supper" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">SUPPER</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body" id = "meal-recepies">
-      RECIPE GOES HERE
-    </section>
-    <footer class="modal-card-foot">       
-      </div>
-    </footer>
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div>
-</div>
-
-
-<div id="modal-sip" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">SIPS</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-      RECIPE GOES HERE
-    </section>
-    <footer class="modal-card-foot">
-      </div>
-    </footer>
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-<footer>
+    <footer>
         <p>&copy; 2024 We Deserve Arrays!</p>
     </footer>
-    <!--JS File-->
-    <script src="./assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
