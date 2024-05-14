@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="index.css">
 </head>
+<body style="background-color: #f2efea;">
 <body>
     <nav class="navbar">
         <!--team logo and for nav bar-->
         <div class="navbar-logo">
         <a class="navbar-item">
-            <img src="images/logo.png" alt="Logo" style="max-height: 70px" class="py-2 px-2">
+            <img src="SUpper&Sips.png" alt="Logo" style="max-height: 130px" class="py-2 px-2">
       </a>
     </div>
 
     <div class="nav bar header">
         <div class="navbar-end">
-            <a class="navbar-item">Supper&Sips!</a>
+            <a class="navbar-item">🍹&🥑</a>
     </div>
 </nav>
 
@@ -26,26 +27,30 @@
 <section class="section">
     <div class="card">
         <header class="card-header">
-            <p class="card-header-title">SUPPER!</p>
+            <p class="card-header-title">SUPPER!🥑</p>
         <div class="card-content">
             <input class="input" type="text" placeholder="Search for your meal!">
         </div>
         <footer class="card-footer">
           <p class="card-footer-item">
-            <a href="#" class="card-footer-item">SEARCH</a>
+            <button class="js-modal-trigger" data-target="modal-supper">
+                Search
+              </button>
         </footer>
       </div>
         
 
       <div class="card">
         <header class="card-header">
-            <p class="card-header-title">SIPS!</p>
+            <p class="card-header-title">SIPS!🍹</p>
         <div class="card-content">
-            <input class="input" type="text" placeholder="Search for your Cocktail!">
+            <input class="input" type="text" placeholder="Search for your Cocktail">
         </div>
         <footer class="card-footer">
           <p class="card-footer-item">
-            <a href="#" class="card-footer-item">SEARCH</a>
+            <button class="js-modal-trigger" data-target="modal-sip">
+                Search
+              </button>
         </footer>
       </div>
 
@@ -64,7 +69,7 @@
 
 
 <!--MODALS-->
-<div class="modal">
+<div id="modal-supper" class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
@@ -74,17 +79,15 @@
     <section class="modal-card-body">
       RECIPE GOES HERE
     </section>
-    <footer class="modal-card-foot">
-      <div class="buttons">
-        <button class="button is-success">SEARCH</button>
-        <button class="button">CANCEL</button>
+    <footer class="modal-card-foot">       
       </div>
     </footer>
+    <button class="modal-close is-large" aria-label="close"></button>
   </div>
 </div>
 
 
-<div class="modal">
+<div id="modal-sip" class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
@@ -95,15 +98,11 @@
       RECIPE GOES HERE
     </section>
     <footer class="modal-card-foot">
-      <div class="buttons">
-        <button class="button is-success">SEARCH</button>
-        <button class="button">CANCEL</button>
       </div>
     </footer>
+    
   </div>
 </div>
-
-
 
 
 
