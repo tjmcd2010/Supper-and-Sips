@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supper&Sips!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <nav class="navbar">
         <!--team logo and for nav bar-->
         <div class="navbar-logo">
         <a class="navbar-item">
-            <img src="images/logo.png" alt="Logo" style="max-height: 70px" class="py-2 px-2">
+           <!-- <img src="images/logo.png" alt="Logo" style="max-height: 70px" class="py-2 px-2">-->
       </a>
     </div>
 
@@ -24,7 +24,7 @@
 
 <!--Cards-->
 <section class="section">
-    <div class="card">
+  <form id="meals-search-form">
         <header class="card-header">
             <p class="card-header-title">SUPPER!</p>
         <div class="card-content">
@@ -32,12 +32,12 @@
         </div>
         <footer class="card-footer">
           <p class="card-footer-item">
-            <a href="#" class="card-footer-item">SEARCH</a>
+            <button class="btn btn-primary" id="search-button">SEARCH</button>
         </footer>
-      </div>
+      </form>
         
 
-      <div class="card">
+      <form id="cocktail-search-form">
         <header class="card-header">
             <p class="card-header-title">SIPS!</p>
         <div class="card-content">
@@ -45,25 +45,26 @@
         </div>
         <footer class="card-footer">
           <p class="card-footer-item">
-            <a href="#" class="card-footer-item">SEARCH</a>
+            <button class="btn btn-primary" id="search-button">SEARCH</button>
         </footer>
-      </div>
+      </form>
 
+      <section class="home-section">
+        <div class="card">
+                <div class="current-header">
+                    <img id="meal-image" src="" />
+                </div>
+                <dl>
+                    <dt>1.</dt>
+                    <dd id="meal-title"></dd>
+                    <dt>Recepie:</dt>
+                    <dd id="meal-desc"></dd>
+                </dl>
+        </div>
+    </section>
 
+<!--
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!--MODALS-->
 <div class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
@@ -101,21 +102,12 @@
       </div>
     </footer>
   </div>
-</div>
-
-
-
-
-
-
-
-
-
-
+</div>-->
 
 <footer>
         <p>&copy; 2024 We Deserve Arrays!</p>
     </footer>
-    <script src="index.js"></script>
+    <!--JS File-->
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
