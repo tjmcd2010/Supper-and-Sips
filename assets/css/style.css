@@ -7,40 +7,69 @@
 .navbar {
     display: flex;
     background-color: #66d7d1;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
-a.navbar-item {
-    color: #fc7753;
-}
-/*User Inputs*/
-.input.input.color {
-    color: black;
-    background-color: #66d7d1;
-}
-.input.input {
-    color: black;
-    background-color: #66d7d1;
-}
-::-webkit-input-placeholder {
-    color: #403d58 !important;
-}
+
+
+
+
 /*Button to trigger the modal form*/
 button.js-modal-trigger {
     background-color: #fc7753;
     color: #fefefe;
     padding: 10px 20px;
-    border: none;
     cursor: pointer;
 }
+
+html,body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.is-wide {
+  width: 550px;
+}
+
+.card.has-text-centered {
+  .card-header,
+  .card-content,
+  .card-footer {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+}
+
+.card-header {
+  padding: 1.75rem 0;
+}
+
+.card-content {
+  padding: 3.5rem 0;
+}
+
+.card-footer {
+  padding: 1rem 0;
+  border: none;
+  font-size: .9rem;
+  color: lighten(black, 50%);
+}
+
 /*Footer*/
 .footer {
     color: #66d7d1 !important;
 }
 /*card*/
 .card {
-    display: flexbox;
+    display: flex;
     align-items: flex-end;
     background-color: #fc7753;
     max-width: ;
