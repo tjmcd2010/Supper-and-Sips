@@ -1,18 +1,32 @@
 /*Bod*/
-html,
-body {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+
+h3 {
+  text-align: center;
+}
+
+header {
+    background-color: lightcyan;
+    text-align: center;
+    margin bottom: 20px;
+
 }
 /*NavBar*/
 .navbar {
-  display: flex;
-  background-color: #66d7d1;
-  align-items: center;
-  padding: 10px 20px;
+  background-color: black;
+  height: 50px;
+}
+/* Adds styling to the left side of the page */
+aside {
+    background-color: antiquewhite;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+article {
+  background-color: antiquewhite;
+  width: 50%;
+  height: 100%;
+  float: right;
 }
 
 /*Button to trigger the modal form*/
@@ -23,18 +37,7 @@ button.js-modal-trigger {
   cursor: pointer;
 }
 
-.card.is-wide {
-width: 550px;
-}
 
-.card.has-text-centered {
-
-  .card-header,
-  .card-content,
-  .card-footer {
-    justify-content: center;
-    align-items: center;
-  }
 
   h1 {
     font-size: 1.75rem;
@@ -60,12 +63,15 @@ color: lighten(black, 50%);
   display: flex;
   align-items: flex-end;
   background-color: #fc7753;
+  margin: 20px;
+  justify-content: center;
 }
 
 /*Section*/
-.section {
-  padding: 20px;
-  color-scheme: blue;
+section {
+    background-color: antiquewhite;
+    height: 100%;
+    float: right;
 }
 /*Modal*/
 .modal-background {
@@ -262,9 +268,12 @@ color: lighten(black, 50%);
   right: 1rem;
 }
 /*Footer*/
-.footer {
-  color: #66d7d1 !important;
-  background-color: #66d7d1;
-  padding: 20px;
+footer {
+  display: block;
+  clear:both;
+  background-color: lightcyan;
   text-align: center;
+  margin top: 20px;
+  
+
 }
