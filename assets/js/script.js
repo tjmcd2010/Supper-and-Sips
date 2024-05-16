@@ -4,8 +4,15 @@ const cocktailSearchFormEl = document.querySelector("#cocktail-search-form");
 const cocktailItemsDiv = document.getElementById('cocktail-recepies');
 const favoriteMealContainerEl = document.getElementById("fav-meals");
 const favMealButtonEl = document.getElementById("fav-btn-meals");
+const mealPopup = document.getElementById("meal-popup");
+const mealInfoEl = document.getElementById("meal-info");
+const popupCloseBtn = document.getElementById("close-popup");
 const favoriteSipContainerEl = document.getElementById("fav-cocktails");
 const favSipButtonEl = document.getElementById("fav-btn-sips");
+
+//calling the function to display favourite meals in the page
+fetchFavMeals();
+
 //read MealID's from localStorage
 let currentmealId;
 function getMealsLS() {
@@ -16,6 +23,15 @@ function getMealsLS() {
 function addMealLS(mealId) {
   const mealIds = getMealsLS();
   localStorage.setItem("mealIds", JSON.stringify([...mealIds, mealId]));
+}
+//remove data from localStorage
+function removeMealLS(mealId) {
+  const mealIds = getMealsLS();
+
+  localStorage.setItem(
+      "mealIds",
+      JSON.stringify(mealIds.filter((currentmealId) => currentmealId !== mealId))
+  );
 }
 
 //Open Modal Form
@@ -61,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+//get meals by using the random API
 //Function to handle Random Meal form submit
 const handleFormSubmit = function (event) {
   event.preventDefault();
@@ -92,7 +109,86 @@ const handleFormSubmit = function (event) {
     });
   }
 };
+//get the meals by using the Mealid
+async function getMealById(currentmealId) {
+  const resp = await fetch(
+      "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + currentmealId
+  );
 
+  const respData = await resp.json();
+  const meal = respData.meals[0];
+
+  return meal;
+}
+
+///////////
+//function to fetch all favourite meals
+async function fetchFavMeals() {
+  favoriteMealContainerEl.innerHTML = "";
+
+  const mealIds = getMealsLS();
+
+  for (let i = 0; i < mealIds.length; i++) {
+      const mealId = mealIds[i];
+      meal = await getMealById(mealId);
+
+      addMealFav(meal);
+  }
+}
+//function to display favourite meals in the main section
+function addMealFav(mealData) {
+  const favMeal = document.createElement("li");
+
+  favMeal.innerHTML = `
+      <img
+          src="${mealData.strMealThumb}"
+          alt="${mealData.strMeal}"/><span>${mealData.strMeal}</span>
+      <button class="clear"><i class="fas fa-window-close"></i></button>`;
+
+  const btn = favMeal.querySelector(".clear");
+
+  btn.addEventListener("click", () => {
+      removeMealLS(mealData.idMeal);
+
+      fetchFavMeals();
+  });
+
+ favMeal.addEventListener("click", () => {
+      showMealInfo(mealData);
+  });
+
+  favoriteMealContainerEl.appendChild(favMeal);
+}
+//Function to popup Meal Info for the favourite Meal selected
+function showMealInfo(mealData) {
+    mealInfoEl.innerHTML = "";
+
+    const mealEl = document.createElement("div");
+
+    const ingredients = [];
+
+    for (let i = 1; i <= 20; i++) {
+        if (mealData["strIngredient" + i]) {
+            ingredients.push(`${mealData["strIngredient" + i]} - ${mealData["strMeasure" + i]}`);
+        }
+        else {
+            break;
+        }
+    }
+
+    mealEl.innerHTML = `
+        <h1>${mealData.strMeal}</h1>
+        <img
+            src="${mealData.strMealThumb}"
+            alt="${mealData.strMeal}"/>
+        <p>${mealData.strInstructions}</p>
+        <h3>Ingredients:</h3>
+        <ul>${ingredients.map((ing) => `<li>${ing}</li>`).join("")}</ul>`;
+
+    mealInfoEl.appendChild(mealEl);
+
+    mealPopup.classList.remove("hidden");
+}
 //Function to handle Random Sip from form Submit
 const handleFormSubmit1 = function (event) {
   event.preventDefault();
@@ -140,3 +236,6 @@ favMealButtonEl.addEventListener("click", function(){
     currentmealId = null;
   }
 });  
+popupCloseBtn.addEventListener("click", () => {
+  mealPopup.classList.add("hidden");
+});
