@@ -35,11 +35,11 @@
           <form id="meals-search-form">
         </div>
         <footer class="card-footer">
-          </p>
           <p class="card-footer-item">
             <button class="js-modal-trigger button is-large" data-target="modal-supper">
               PRESS TO GET A MEAL! 🥑
             </button>
+          </p>
         </footer>
       </div>
     </form>
@@ -79,7 +79,8 @@
 
     <!--MODALS-->
     <!--Meal Recepies Modal-->
-    <div id="modal-supper" class="modal modal-background ">
+    <div id="modal-supper" class="modal">
+      <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">SUPPER</p>
@@ -91,11 +92,12 @@
           <!--Favorite button-->
           <button class="fav-btn-meals" id ="fav-btn-meals">Save <i class="fas fa-heart"></i></button>
         </footer>
-      </div>
       <button class="modal-close is-large" aria-label="close"></button>
+      </div>
     </div>
     <!--Cocktail Recepies Modal-->
-    <div id="modal-sip" class="modal modal-background">
+    <div id="modal-sip" class="modal">
+      <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">SIPS</p>
@@ -109,6 +111,18 @@
         </footer>
       </div>
     </div>
+
+     <!--Display Favourites-->
+     <div class="fav-container-meals">
+      <h3>My Favourite Meal's</h3>
+      <ul class="fav-meals" id="fav-meals"></ul>
+    </div>
+    <!--Display Favourite Cocktail-->
+    <div class="fav-container-Cocktails">
+      <h3>My Favourite Cocktail's</h3>
+      <ul class="fav-cocktails" id="fav-cocktails"></ul>
+    </div>
+    
     <!--JS File-->
     <script src="./assets/js/script.js"></script>
     <!--Link to my Fontawsome Toolkit-->
