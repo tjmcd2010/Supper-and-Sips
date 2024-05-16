@@ -19,10 +19,11 @@
 <h2> A RANDOM COCKTAIL AND ENTREE RECIPE GENERATOR! </h2>
 
 </header>
-  <nav class = "navbar">
-  </nav>
+
 <main>
   <!--Main Cards-->
+  <!--Aside section show the meal the generate meal and favorites
+  -->
   <aside>
 <!--Generate Random Meal Form-->
 <form id="meals-search-form">
@@ -44,17 +45,10 @@
   <h3>My Favorite Meals</h3>
   <ul class="fav-meals" id="fav-meals"></ul>
 </div>
+</aside>
 <!--Popup Container to display Favorite meal details-->
-<div class="popup-container hidden" id="meal-popup">
-  <div class="popup">
-    <button id="close-popup" class="close-popup">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="meal-info" id="meal-info"></div>
-  </div>
-</div>
 
-  </aside>
+ 
   <article>
     
     <!--Generate Random Cocktail form-->
@@ -118,6 +112,17 @@
         </footer>
       </div>
     </div>
+
+    <section>
+      <div class="popup-container hidden" id="meal-popup">
+        <div class="popup">
+          <button id="close-popup" class="close-popup">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="meal-info" id="meal-info"></div>
+        </div>
+      </div>
+      </section>
 
     <!--Footer-->
 <footer> 
