@@ -193,7 +193,8 @@ function addMealFav(mealData) {
 
   const btn = favMeal.querySelector(".clear");
 
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (event) => {
+    event.stopPropagation();
     removeMealLS(mealData.idMeal);
 
     fetchFavMeals();
@@ -311,7 +312,8 @@ function addSipFav(sipData) {
 
   const btn = favSip.querySelector(".clear");
 
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (event) => {
+    event.stopPropagation();
     removeSipLS(sipData.idDrink);
 
     fetchFavSips();
@@ -340,12 +342,14 @@ favMealButtonEl.addEventListener("click", function () {
   if (currentmealId !== null) {
     addMealLS(currentmealId);
     currentmealId = null;
+    fetchFavMeals();
   }
 });
 favSipButtonEl.addEventListener("click", function () {
   if (currentSipId !== null) {
     addSipsLS(currentSipId);
     currentSipId = null;
+    fetchFavSips();
   }
 });
 
