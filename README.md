@@ -1,8 +1,8 @@
 # Supper-and-Sips
-An app to randomly choose dinner and drink recipes.
+An app to randomly choose dinner and drink recipes. The Random Recipe & Cocktail Generator is ideal for anyone who wants to try new but delicious recipes. With a range of different recipes to choose from, this generator has something for everyone. Happy Cooking 👨🏻‍🍳
 
 ## Description
-Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "chicken recepies" or just "pasta recepies" or even complicated dishes like "low fat vegan cupcakes".
+Our food ontology and semantic recipe and cocktail finder makes it possible to get recipes and cocktail's with just one click. If you're looking for a new way to mixup your meal and cocktail routine or want to take last-minute inspiration to a family's meal planning, you have come to the right place. This random recepie & cocktail generator can help you break out of your cooking rut by giving you new ideas for dishes and cocktails you may never have thought of before.
 
 ## Screenshots and GIFs of live site
 
@@ -78,3 +78,4 @@ None
 
 Inspiration, code snippets, etc.
 * [dbader](https://github.com/dbader/readme-template)
+* [fontAwsome](https://fontawesome.com/)
