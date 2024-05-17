@@ -6,11 +6,14 @@ Our food ontology and semantic recipe search engine makes it possible to search 
 
 ## Screenshots and GIFs of live site
 
+Loading page: 
 ![Live View](assets/images/final-view.png)
 
-![Random Generation](/Supper-and-Sips/assets/images/get-random-meal.png)
+Random Generation of an entrée:
+![Random Generation](/assets/images/get-random-meal.png)
 
-![View Favorite](/Supper-and-Sips/assets/images/view-favorite.png)
+Revisiting a favorited selection:
+![View Favorite](/assets/images/view-favorite.png)
 
 ### Dependencies
 
