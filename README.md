@@ -6,7 +6,7 @@ Our food ontology and semantic recipe search engine makes it possible to search 
 
 ## Screenshots and GIFs of live site
 
-![Live View](/Supper-and-Sips/assets/images/final-view.png)
+![Live View](assets/images/final-view.png)
 
 ![Random Generation](/Supper-and-Sips/assets/images/get-random-meal.png)
 
