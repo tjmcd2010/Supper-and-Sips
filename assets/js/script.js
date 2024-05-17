@@ -10,16 +10,18 @@ const popupCloseBtn = document.getElementById("close-popup");
 const favoriteSipContainerEl = document.getElementById("fav-cocktails");
 const favSipButtonEl = document.getElementById("fav-btn-sips");
 
-//calling the function to display favourite meals in the page
+//calling the function to display favourite meals & sips in the page
 fetchFavMeals();
+fetchFavSips();
 
+///////////
+//LOCALSTORAGE FOR MEALS
 //read MealID's from localStorage
 let currentmealId;
 function getMealsLS() {
   const mealIds = JSON.parse(localStorage.getItem("mealIds"));
   return mealIds ? mealIds : [];
 }
-
 // Store MealID into Local Storage
 function addMealLS(mealId) {
   const mealIds = getMealsLS();
@@ -30,11 +32,34 @@ function removeMealLS(mealId) {
   const mealIds = getMealsLS();
 
   localStorage.setItem(
-      "mealIds",
-      JSON.stringify(mealIds.filter((currentmealId) => currentmealId !== mealId))
+    "mealIds",
+    JSON.stringify(mealIds.filter((currentmealId) => currentmealId !== mealId))
   );
 }
+//LOCALSTORAGE FOR COCKTAILS
+//read DrinkID's from localStorage
+let currentSipId;
+function getSipsLS() {
+  const idDrinks = JSON.parse(localStorage.getItem("idDrinks"));
+  return idDrinks ? idDrinks : [];
+}
+// Store MealID into Local Storage
+function addSipsLS(idDrink) {
+  const idDrinks = getSipsLS();
+  localStorage.setItem("idDrinks", JSON.stringify([...idDrinks, idDrink]));
+}
+//remove data from localStorage
+function removeSipLS(idDrink) {
+  const idDrinks = getSipsLS();
 
+  localStorage.setItem(
+    "idDrinks",
+    JSON.stringify(idDrinks.filter((currentSipId) => currentSipId !== idDrink))
+  );
+}
+////////////
+
+////////////
 // Get ingredient list
 const getIngredients = (item) => {
   let ingredients = [];
@@ -52,39 +77,14 @@ const getIngredients = (item) => {
   }
   return ingredients;
 };
+////////////////
 
-// Sample function to fetch meal data and populate the modal
-async function fetchMealData() {
-    const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
-    const data = await response.json();
-    const meal = data.meals[0];
-    
-    const mealModalBody = document.getElementById('meal-recepies');
-    mealModalBody.innerHTML = `
-      <h3>${meal.strMeal}</h3>
-      <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-      <p>${meal.strInstructions}</p>
-    `;
-  }
-  
-  // Sample function to fetch cocktail data and populate the modal
-  async function fetchCocktailData() {
-    const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
-    const data = await response.json();
-    const cocktail = data.drinks[0];
-    
-    const cocktailModalBody = document.getElementById('cocktail-recepies');
-    cocktailModalBody.innerHTML = `
-      <h3>${cocktail.strDrink}</h3>
-      <img src="${cocktail.strDrinkThumb}" alt="${cocktail.strDrink}">
-      <p>${cocktail.strInstructions}</p>
-    `;
-  }
-
+////////////MODAL/////////////
+//Modal
 document.addEventListener('DOMContentLoaded', () => {
   // Get all modal trigger buttons
   const modalTriggers = document.querySelectorAll('.js-modal-trigger');
-  
+
   // Add event listeners to each trigger button
   modalTriggers.forEach(trigger => {
     trigger.addEventListener('click', (event) => {
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       openModal(targetModal);
     });
   });
-  
+
   // Function to open modal
   function openModal(modalId) {
     const modal = document.getElementById(modalId);
@@ -100,55 +100,23 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'block';
     }
   }
-  
+
   // Function to close modal
   function closeModal(modal) {
     modal.style.display = 'none';
   }
-  
+
   // Add event listeners to all close buttons
   document.querySelectorAll('.modal .delete').forEach(closeButton => {
     const modal = closeButton.closest('.modal');
     closeButton.addEventListener('click', () => closeModal(modal));
   });
-  
+
   // Add event listeners to modal backgrounds to close modal when clicking outside
   document.querySelectorAll('.modal-background').forEach(background => {
     const modal = background.closest('.modal');
     background.addEventListener('click', () => closeModal(modal));
   });
-  
-  // Sample function to fetch meal data and populate the modal
-  async function fetchMealData() {
-    const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
-    const data = await response.json();
-    const meal = data.meals[0];
-    
-    const mealModalBody = document.getElementById('meal-recipes');
-    mealModalBody.innerHTML = `
-      <h3>${meal.strMeal}</h3>
-      <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-      <p>${meal.strInstructions}</p>
-    `;
-  }
-  
-  // Sample function to fetch cocktail data and populate the modal
-  async function fetchCocktailData() {
-    const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
-    const data = await response.json();
-    const cocktail = data.drinks[0];
-    
-    const cocktailModalBody = document.getElementById('cocktail-recipes');
-    cocktailModalBody.innerHTML = `
-      <h3>${cocktail.strDrink}</h3>
-      <img src="${cocktail.strDrinkThumb}" alt="${cocktail.strDrink}">
-      <p>${cocktail.strInstructions}</p>
-    `;
-  }
-  
-  // Add event listeners to the meal and cocktail buttons
-  document.querySelector('[data-target="modal-supper"]').addEventListener('click', fetchMealData);
-  document.querySelector('[data-target="modal-sip"]').addEventListener('click', fetchCocktailData);
 });
 //get meals by using the random API
 //Function to handle Random Meal form submit
@@ -160,7 +128,7 @@ const handleFormSubmit = function (event) {
       return response.json();
     })
     .then(data => displayFoods(data))
-  
+
   const displayFoods = foods => {
     const foodItemsDiv = document.getElementById('meal-recepies');
     currentmealId = foods.meals[0].idMeal;
@@ -190,7 +158,7 @@ const handleFormSubmit = function (event) {
 //get the meals by using the Mealid
 async function getMealById(currentmealId) {
   const resp = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + currentmealId
+    "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + currentmealId
   );
 
   const respData = await resp.json();
@@ -207,10 +175,10 @@ async function fetchFavMeals() {
   const mealIds = getMealsLS();
 
   for (let i = 0; i < mealIds.length; i++) {
-      const mealId = mealIds[i];
-      meal = await getMealById(mealId);
+    const mealId = mealIds[i];
+    meal = await getMealById(mealId);
 
-      addMealFav(meal);
+    addMealFav(meal);
   }
 }
 //function to display favourite meals in the main section
@@ -226,35 +194,35 @@ function addMealFav(mealData) {
   const btn = favMeal.querySelector(".clear");
 
   btn.addEventListener("click", () => {
-      removeMealLS(mealData.idMeal);
+    removeMealLS(mealData.idMeal);
 
-      fetchFavMeals();
+    fetchFavMeals();
   });
 
- favMeal.addEventListener("click", () => {
-      showMealInfo(mealData);
+  favMeal.addEventListener("click", () => {
+    showMealInfo(mealData);
   });
 
   favoriteMealContainerEl.appendChild(favMeal);
 }
 //Function to popup Meal Info for the favourite Meal selected
 function showMealInfo(mealData) {
-    mealInfoEl.innerHTML = "";
+  mealInfoEl.innerHTML = "";
 
-    const mealEl = document.createElement("div");
+  const mealEl = document.createElement("div");
 
-    const ingredients = [];
+  const ingredients = [];
 
-    for (let i = 1; i <= 20; i++) {
-        if (mealData["strIngredient" + i]) {
-            ingredients.push(`${mealData["strIngredient" + i]} - ${mealData["strMeasure" + i]}`);
-        }
-        else {
-            break;
-        }
+  for (let i = 1; i <= 20; i++) {
+    if (mealData["strIngredient" + i]) {
+      ingredients.push(`${mealData["strIngredient" + i]} - ${mealData["strMeasure" + i]}`);
     }
+    else {
+      break;
+    }
+  }
 
-    mealEl.innerHTML = `
+  mealEl.innerHTML = `
         <h1>${mealData.strMeal}</h1>
         <img
             src="${mealData.strMealThumb}"
@@ -263,9 +231,9 @@ function showMealInfo(mealData) {
         <h3>Ingredients:</h3>
         <ul>${ingredients.map((ing) => `<li>${ing}</li>`).join("")}</ul>`;
 
-    mealInfoEl.appendChild(mealEl);
+  mealInfoEl.appendChild(mealEl);
 
-    mealPopup.classList.remove("hidden");
+  mealPopup.classList.remove("hidden");
 }
 //Function to handle Random Sip from form Submit
 const handleFormSubmit1 = function (event) {
@@ -276,8 +244,9 @@ const handleFormSubmit1 = function (event) {
       return response.json();
     })
     .then(data => displayCocktails(data))
-  
+
   const displayCocktails = cocktails => {
+    currentSipId = cocktails.drinks[0].idDrink;cocktails
     cocktails.drinks.forEach(cocktail => {
       const ingredientsList = getIngredients(cocktail);
       const cocktailDiv = document.createElement('div');
@@ -301,7 +270,59 @@ const handleFormSubmit1 = function (event) {
     });
   }
 }
+//Favorite Sips
+//get the sips by using the idDrink
+async function getSipById(currentSipId) {
+  const resp = await fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + currentSipId
+  );
 
+  const respDataSip = await resp.json();
+  console.log(`respDataSip`, respDataSip);
+  const sip = respDataSip.drinks[0];
+
+  return sip;
+}
+
+///////////
+//function to fetch all favourite sips
+async function fetchFavSips() {
+  favoriteSipContainerEl.innerHTML = "";
+
+  const idDrinks = getSipsLS();
+
+  for (let i = 0; i < idDrinks.length; i++) {
+    const idDrink = idDrinks[i];
+    sip = await getSipById(idDrink);
+
+    addSipFav(sip);
+  }
+}
+
+//function to display favorite sips in the main section
+function addSipFav(sipData) {
+  const favSip = document.createElement("li");
+
+  favSip.innerHTML = `
+      <img
+          src="${sipData.strDrinkThumb}"
+          alt="${sipData.strDrink}"/><span>${sipData.strDrink}</span>
+      <button class="clear"><i class="fas fa-window-close"></i></button>`;
+
+  const btn = favSip.querySelector(".clear");
+
+  btn.addEventListener("click", () => {
+    removeSipLS(sipData.idDrink);
+
+    fetchFavSips();
+  });
+
+  /*favSip.addEventListener("click", () => {
+    showMealInfo(mealData);
+  });*/
+
+  favoriteSipContainerEl.appendChild(favSip);
+}
 // Function to add event listeners to submit search and clicking form buttons
 function addEventListeners() {
   mealSearchFormEl.addEventListener("submit", handleFormSubmit);
@@ -315,12 +336,20 @@ function init() {
 init();
 
 // Function to add event listener to the save button
-favMealButtonEl.addEventListener("click", function() {
+favMealButtonEl.addEventListener("click", function () {
   if (currentmealId !== null) {
     addMealLS(currentmealId);
     currentmealId = null;
   }
-});  
+});
+favSipButtonEl.addEventListener("click", function () {
+  if (currentSipId !== null) {
+    addSipsLS(currentSipId);
+    currentSipId = null;
+  }
+});
+
+//Event listener to close the favorite meals popup  
 popupCloseBtn.addEventListener("click", () => {
   mealPopup.classList.add("hidden");
 });

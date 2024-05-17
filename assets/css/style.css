@@ -1,30 +1,18 @@
 /*Bod*/
-
-h3 {
-  text-align: center;
-  font-weight: bolder;
-}
-
-header {
-    background-color: lightcyan;
-    text-align: center;
-    margin-bottom: 20px;
-
+html,
+body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 /*NavBar*/
-
-/* Adds styling to the left side of the page */
-aside {
-    background-color: antiquewhite;
-    width: 50%;
-    height: 100%;
-    float: left;
-}
-article {
-  background-color: antiquewhite;
-  width: 50%;
-  height: 100%;
-  float: right;
+.navbar {
+  display: flex;
+  background-color: #66d7d1;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 /*Button to trigger the modal form*/
@@ -35,7 +23,18 @@ button.js-modal-trigger {
   cursor: pointer;
 }
 
+.card.is-wide {
+width: 550px;
+}
 
+.card.has-text-centered {
+
+  .card-header,
+  .card-content,
+  .card-footer {
+    justify-content: center;
+    align-items: center;
+  }
 
   h1 {
     font-size: 1.75rem;
@@ -61,15 +60,12 @@ color: lighten(black, 50%);
   display: flex;
   align-items: flex-end;
   background-color: #fc7753;
-  margin: 20px;
-  justify-content: center;
 }
 
 /*Section*/
-section {
-    background-color: antiquewhite;
-    height: 100%;
-    float: right;
+.section {
+  padding: 20px;
+  color-scheme: blue;
 }
 /*Modal*/
 .modal-background {
@@ -128,7 +124,7 @@ section {
   text-align: center;
 }
 
-.fav-meals {
+.fav-meals, .fav-cocktails {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -136,14 +132,14 @@ section {
   padding: 0;
 }
 
-.fav-meals li {
+.fav-meals li , .fav-cocktails li{
   cursor: pointer;
   position: relative;
   margin: 5px;
   width: 75px;
 }
 
-.fav-meals li .clear {
+.fav-meals li .clear, .fav-cocktails li .clear {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -154,11 +150,11 @@ section {
   font-size: 1.2rem;
 }
 
-.fav-meals li:hover .clear {
+.fav-meals li:hover .clear, .fav-cocktails  li:hover .clear{
   opacity: 1;
 }
 
-.fav-meals li img {
+.fav-meals li img , .fav-cocktails li img{
   border: 2px solid #ffffff;
   border-radius: 50%;
   box-shadow: 0 0 10px 2px #3333331a;
@@ -167,7 +163,7 @@ section {
   width: 70px;
 }
 
-.fav-meals li span {
+.fav-meals li span , .fav-cocktails li span{
   display: inline-block;
   font-size: 0.9rem;
   white-space: nowrap;
@@ -266,12 +262,9 @@ section {
   right: 1rem;
 }
 /*Footer*/
-footer {
-  display: block;
-  clear:both;
-  background-color: lightcyan;
+.footer {
+  color: #66d7d1 !important;
+  background-color: #66d7d1;
+  padding: 20px;
   text-align: center;
-  margin top: 20px;
-  
-
 }
