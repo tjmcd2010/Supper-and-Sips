@@ -6,6 +6,9 @@ Our food ontology and semantic recipe search engine makes it possible to search 
 
 ## Screenshots and GIFs of live site
 
+Live Demo:
+
+![Live Demo](assets/images/Sips%20Demo.gif)
 Loading page: 
 ![Live View](assets/images/final-view.png)
 
@@ -14,6 +17,19 @@ Random Generation of an entrée:
 
 Revisiting a favorited selection:
 ![View Favorite](/assets/images/view-favorite.png)
+
+## Future Iterations
+1. Adding more customization with the random selection, i.e. entrée vs dessert
+2. Adding an automation on the drink based on the entrée selected
+3. Recipe takes you to a video of somebody preparing the meal or drink
+4. Print the recipe to pdf or to your own printer
+5. Modal options to open a new page or open a print screen
+6. Options for customizations for searches for non-alcoholic or vegan/vegatarian options
+
+## PDF of our Presentation
+
+Presentation Slide Deck
+![Presentation Slide Deck](assets/images/Supper%20and%20Sips%20Presentation%20-%20We%20Deserve%20Arrays.pdf)
 
 ### Dependencies
 
@@ -29,12 +45,7 @@ Revisiting a favorited selection:
 
 * Access the page using the [GitHub Pages](https://tjmcd2010.github.io/Supper-and-Sips/)
 
-## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
 
 ## Authors
 
