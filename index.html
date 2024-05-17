@@ -2,6 +2,7 @@
 <html lang="en">
 
 <!--Head-->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,65 +13,64 @@
 </head>
 
 <!--Body-->
+
 <body>
-<header>
-  <img src="./assets/images/SUpper&Sips.png" alt="Logo link to team repository" style="max-height: 200px"
+  <header>
+    <img src="./assets/images/SUpper&Sips.png" alt="Logo link to team repository" style="max-height: 200px"
       class="py-2 px-2">
-<h2> A RANDOM COCKTAIL AND ENTREE RECIPE GENERATOR! </h2>
+    <h2> A RANDOM COCKTAIL AND ENTREE RECIPE GENERATOR! </h2>
 
-</header>
+  </header>
 
-<main>
-  <!--Main Cards-->
-  <!--Aside section show the meal the generate meal and favorites
-  -->
-  <aside>
-<!--Generate Random Meal Form-->
-<form id="meals-search-form">
-  <div class="card">
-    <div class="card-content">
+  <main>
+    <!--Main Cards-->
+    <!--Aside section show the meal the generate meal and favorites-->
+    <aside>
+      <!--Generate Random Meal Form-->
       <form id="meals-search-form">
-    </div>
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <button class="js-modal-trigger button is-large" data-target="modal-supper">
-          PRESS TO GET A MEAL! 🥑
-        </button>
-      </p>
-    </footer>
-  </div>
-</form>    
-<!--Display Favorites-->
-<div class="fav-container-meals">
-  <h3>🧅My Favorite Meals🍅</h3>
-  <ul class="fav-meals" id="fav-meals"></ul>
-</div>
-</aside>
-<!--Popup Container to display Favorite meal details-->
-
- 
-  <article>
-    
-    <!--Generate Random Cocktail form-->
-    <form id="cocktail-search-form">
-      <div class="card">
-        <div class="card-content">
-          <form id="meals-search-form">
+        <div class="card">
+          <div class="card-content">
+            <form id="meals-search-form">
+          </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <button class="js-modal-trigger button is-large" data-target="modal-supper">
+                PRESS TO GET A MEAL! 🥑
+              </button>
+            </p>
+          </footer>
         </div>
-        <footer class="card-footer">
-          <p class="card-footer-item">
-            <button class="js-modal-trigger button is-large" data-target="modal-sip">
-              PRESS TO GET A COCKTAIL!🍹
-            </button>
-        </footer>
+      </form>
+      <!--Display Favorites-->
+      <div class="fav-container-meals">
+        <h3>🧅My Favorite Meals🍅</h3>
+        <ul class="fav-meals" id="fav-meals"></ul>
       </div>
-    </form>
-    <!--Display Favorite Cocktail-->
-<div class="fav-container-Cocktails">
-  <h3>🍸My Favorite Cocktails🍹</h3>
-  <ul class="fav-cocktails" id="fav-cocktails" ></ul>
-</div>
-  </article>
+    </aside>
+    <!--Popup Container to display Favorite meal details-->
+
+
+    <article>
+      <!--Generate Random Cocktail form-->
+      <form id="cocktail-search-form">
+        <div class="card">
+          <div class="card-content">
+            <form id="meals-search-form">
+          </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <button class="js-modal-trigger button is-large" data-target="modal-sip">
+                PRESS TO GET A COCKTAIL!🍹
+              </button>
+          </footer>
+        </div>
+      </form>
+      <!--Display Favorite Cocktail-->
+      <div class="fav-container-Cocktails">
+        <h3>🍸My Favorite Cocktails🍹</h3>
+        <ul class="fav-cocktails" id="fav-cocktails"></ul>
+      </div>
+    </article>
 
     <!--MODALS-->
     <!--Meal Recepies Modal-->
@@ -85,9 +85,9 @@
         </section>
         <footer class="modal-card-foot">
           <!--Favorite button-->
-          <button class="fav-btn-meals" id ="fav-btn-meals">Save <i class="fas fa-heart"></i></button>
+          <button class="fav-btn-meals" id="fav-btn-meals">Save <i class="fas fa-heart"></i></button>
         </footer>
-      <button class="modal-close is-large" aria-label="close"></button>
+        <button class="modal-close is-large" aria-label="close"></button>
       </div>
     </div>
     <!--Cocktail Recepies Modal-->
@@ -99,20 +99,21 @@
           <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body" id="cocktail-recepies"></section>
-        
-<!--Display Favorite Cocktail-->
-<div class="fav-container-Cocktails">
-  <h3>My Favorite Cocktail's</h3>
-  <ul class="fav-cocktails" id="fav-cocktails"></ul>
-</div>
+
+        <!--Display Favorite Cocktail-->
+        <div class="fav-container-Cocktails">
+          <h3>My Favorite Cocktail's</h3>
+          <ul class="fav-cocktails" id="fav-cocktails"></ul>
+        </div>
 
         <footer class="modal-card-foot">
           <!--Favorite button-->
-          <button class="fav-btn-sips" id ="fav-btn-sips">Save <i class="fas fa-heart"></i></button>
+          <button class="fav-btn-sips" id="fav-btn-sips">Save <i class="fas fa-heart"></i></button>
         </footer>
       </div>
     </div>
-
+<!--Popup's for favourite's-->
+<!--Popup: Favourite Meal's-->
     <section>
       <div class="popup-container hidden" id="meal-popup">
         <div class="popup">
@@ -122,20 +123,29 @@
           <div class="meal-info" id="meal-info"></div>
         </div>
       </div>
-      </section>
+    </section>
+<!--Popup: Favorite Sip's-->
+    <section>
+      <div class="popup-container hidden" id="sip-popup">
+        <div class="popup">
+          <button id="close-popup" class="close-popup">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="sip-info" id="sip-info"></div>
+        </div>
+      </div>
+    </section>
 
     <!--Footer-->
-<footer> 
-  <h2>Styled by <a href = "https://github.com/tjmcd2010/Supper-and-Sips"> We Deserve Arrays</a></h2> 
-  </footer>
+    <footer>
+      <h2>Styled by <a href="https://github.com/tjmcd2010/Supper-and-Sips"> We Deserve Arrays</a></h2>
+    </footer>
     <!--JS File-->
     <script src="./assets/js/script.js"></script>
     <!--Link to my Fontawsome Toolkit-->
     <!--Free account with readymade code for icons-->
     <script src="https://kit.fontawesome.com/ba420aa2e1.js" crossorigin="anonymous"></script>
-</main>
-
-
+  </main>
 
 </body>
 

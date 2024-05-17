@@ -6,6 +6,8 @@ const favoriteMealContainerEl = document.getElementById("fav-meals");
 const favMealButtonEl = document.getElementById("fav-btn-meals");
 const mealPopup = document.getElementById("meal-popup");
 const mealInfoEl = document.getElementById("meal-info");
+const sipPopup = document.getElementById("sip-popup");
+const sipInfoEl = document.getElementById("sip-info");
 const popupCloseBtn = document.getElementById("close-popup");
 const favoriteSipContainerEl = document.getElementById("fav-cocktails");
 const favSipButtonEl = document.getElementById("fav-btn-sips");
@@ -277,11 +279,9 @@ async function getSipById(currentSipId) {
   const resp = await fetch(
     "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + currentSipId
   );
-
   const respDataSip = await resp.json();
   console.log(`respDataSip`, respDataSip);
   const sip = respDataSip.drinks[0];
-
   return sip;
 }
 
@@ -319,11 +319,41 @@ function addSipFav(sipData) {
     fetchFavSips();
   });
 
-  /*favSip.addEventListener("click", () => {
-    showMealInfo(mealData);
-  });*/
+  favSip.addEventListener("click", () => {
+    showSipInfo(sipData);
+  });
 
   favoriteSipContainerEl.appendChild(favSip);
+}
+//Function to popup Cocktail Info for the favourite Sip selected
+function showSipInfo(sipData) {
+  sipInfoEl.innerHTML = "";
+
+  const sipEl = document.createElement("div");
+
+  const ingredients = [];
+
+  for (let i = 1; i <= 20; i++) {
+    if (sipData["strIngredient" + i]) {
+      ingredients.push(`${sipData["strIngredient" + i]} - ${sipData["strMeasure" + i]}`);
+    }
+    else {
+      break;
+    }
+  }
+
+  sipEl.innerHTML = `
+        <h1>${sipData.strDrink}</h1>
+        <img
+            src="${sipData.strDrinkThumb}"
+            alt="${sipData.strDrink}"/>
+        <p>${sipData.strInstructions}</p>
+        <h3>Ingredients:</h3>
+        <ul>${ingredients.map((ing) => `<li>${ing}</li>`).join("")}</ul>`;
+
+        sipInfoEl.appendChild(sipEl);
+
+  sipPopup.classList.remove("hidden");
 }
 // Function to add event listeners to submit search and clicking form buttons
 function addEventListeners() {
@@ -356,4 +386,5 @@ favSipButtonEl.addEventListener("click", function () {
 //Event listener to close the favorite meals popup  
 popupCloseBtn.addEventListener("click", () => {
   mealPopup.classList.add("hidden");
+  sipPopup.classList.add("hidden");
 });
