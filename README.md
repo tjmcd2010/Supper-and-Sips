@@ -4,7 +4,13 @@ An app to randomly choose dinner and drink recipes.
 ## Description
 Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "chicken recepies" or just "pasta recepies" or even complicated dishes like "low fat vegan cupcakes".
 
-## Getting Started
+## Screenshots and GIFs of live site
+
+![Live View](/Supper-and-Sips/assets/images/final-view.png)
+
+![Random Generation](/Supper-and-Sips/assets/images/get-random-meal.png)
+
+![View Favorite](/Supper-and-Sips/assets/images/view-favorite.png)
 
 ### Dependencies
 
