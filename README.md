@@ -9,13 +9,18 @@ Our food ontology and semantic recipe search engine makes it possible to search 
 Live Demo:
 
 ![Live Demo](assets/images/Sips%20Demo.gif)
+
 Loading page: 
 ![Live View](assets/images/final-view.png)
 
+
 Random Generation of an entrée:
+
 ![Random Generation](/assets/images/get-random-meal.png)
 
+
 Revisiting a favorited selection:
+
 ![View Favorite](/assets/images/view-favorite.png)
 
 ## Future Iterations
@@ -29,7 +34,7 @@ Revisiting a favorited selection:
 ## PDF of our Presentation
 
 Presentation Slide Deck
-![Presentation Slide Deck](assets/images/Supper%20and%20Sips%20Presentation%20-%20We%20Deserve%20Arrays.pdf)
+[Presentation Slide Deck](https://github.com/tjmcd2010/Supper-and-Sips/blob/main/assets/images/Supper%20and%20Sips%20Presentation%20-%20We%20Deserve%20Arrays.pdf)
 
 ### Dependencies
 
