@@ -5,44 +5,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supper&Sips!</title>
+  <title>Supper and Sips!</title>
   <!--Style Sheets-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <!--Body-->
-<body style="background-color: #f2efea;">
+<body>
+<header>
+  <img src="./assets/images/SUpper&Sips.png" alt="Logo link to team repository" style="max-height: 200px"
+      class="py-2 px-2">
+<h2> A RANDOM COCKTAIL AND ENTREE RECIPE GENERATOR! </h2>
 
-  <!--Navigation Bar-->
-  <nav class="navbar">
-    <!--team logo and for nav bar-->
-    <div class="navbar-logo">
-      <a class="navbar-item">
-        <a href="https://github.com/tjmcd2010/Supper-and-Sips">
-          <img src="./assets/images/SUpper&Sips.png" alt="Logo link to team repository" style="max-height: 200px"
-            class="py-2 px-2">
-        </a>
-    </div>
-  </nav>
+</header>
 
+<main>
   <!--Main Cards-->
-  <section class="section is-centered">
-    <!--Generate Random Meal Form-->
-    <form id="meals-search-form">
-      <div class="card">
-        <div class="card-content">
-          <form id="meals-search-form">
-        </div>
-        <footer class="card-footer">
-          <p class="card-footer-item">
-            <button class="js-modal-trigger button is-large" data-target="modal-supper">
-              PRESS TO GET A MEAL! 🥑
-            </button>
-          </p>
-        </footer>
-      </div>
-    </form>
+  <!--Aside section show the meal the generate meal and favorites
+  -->
+  <aside>
+<!--Generate Random Meal Form-->
+<form id="meals-search-form">
+  <div class="card">
+    <div class="card-content">
+      <form id="meals-search-form">
+    </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <button class="js-modal-trigger button is-large" data-target="modal-supper">
+          PRESS TO GET A MEAL! 🥑
+        </button>
+      </p>
+    </footer>
+  </div>
+</form>    
+<!--Display Favorites-->
+<div class="fav-container-meals">
+  <h3>My Favorite Meals</h3>
+  <ul class="fav-meals" id="fav-meals"></ul>
+</div>
+</aside>
+<!--Popup Container to display Favorite meal details-->
+
+ 
+  <article>
+    
     <!--Generate Random Cocktail form-->
     <form id="cocktail-search-form">
       <div class="card">
@@ -57,25 +65,12 @@
         </footer>
       </div>
     </form>
-    <!--Display Favorites-->
-    <div class="fav-container-meals">
-      <h3>My Favorite Meal's</h3>
-      <ul class="fav-meals" id="fav-meals"></ul>
-    </div>
-    <!--Popup Container to display Favorite meal details-->
-    <div class="popup-container hidden" id="meal-popup">
-      <div class="popup">
-        <button id="close-popup" class="close-popup">
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="meal-info" id="meal-info"></div>
-      </div>
-    </div>
     <!--Display Favorite Cocktail-->
-    <div class="fav-container-Cocktails">
-      <h3>My Favorite Cocktail's</h3>
-      <ul class="fav-cocktails" id="fav-cocktails"></ul>
-    </div>
+<div class="fav-container-Cocktails">
+  <h3>My Favorite Cocktails</h3>
+  <ul class="fav-cocktails" id="fav-cocktails" ></ul>
+</div>
+  </article>
 
     <!--MODALS-->
     <!--Meal Recepies Modal-->
@@ -103,21 +98,45 @@
           <p class="modal-card-title">SIPS</p>
           <button class="delete" aria-label="close"></button>
         </header>
-        <section class="modal-card-body" id="cocktail-recepies">
-        </section>
+        <section class="modal-card-body" id="cocktail-recepies"></section>
+        
+<!--Display Favorite Cocktail-->
+<div class="fav-container-Cocktails">
+  <h3>My Favorite Cocktail's</h3>
+  <ul class="fav-cocktails" id="fav-cocktails"></ul>
+</div>
+
         <footer class="modal-card-foot">
           <!--Favorite button-->
           <button class="fav-btn-sips" id ="fav-btn-sips">Save <i class="fas fa-heart"></i></button>
         </footer>
       </div>
     </div>
+
+    <section>
+      <div class="popup-container hidden" id="meal-popup">
+        <div class="popup">
+          <button id="close-popup" class="close-popup">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="meal-info" id="meal-info"></div>
+        </div>
+      </div>
+      </section>
+
+    <!--Footer-->
+<footer> 
+  <h2>Styled by <a href = "https://github.com/tjmcd2010/Supper-and-Sips"> We Deserve Arrays</a></h2> 
+  </footer>
     <!--JS File-->
     <script src="./assets/js/script.js"></script>
     <!--Link to my Fontawsome Toolkit-->
     <!--Free account with readymade code for icons-->
     <script src="https://kit.fontawesome.com/ba420aa2e1.js" crossorigin="anonymous"></script>
+</main>
+
+
+
 </body>
 
-<!--Footer-->
-<footer> A RANDOM COCKTAIL AND ENTREE RECIPE GENERATOR! </footer>
 </html>
