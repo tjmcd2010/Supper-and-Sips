@@ -39,7 +39,7 @@ button.js-modal-trigger {
     font-size: 1.75rem;
     font-weight: bold;
   }
-}
+
 /*Cards*/
 .card-header {
 padding: 1.75rem 0;
@@ -91,12 +91,14 @@ section {
 
 .modal-card-body {
   background-color: #66d7d1;
-  color: #fc7753
+  color: #fc7753;
+  margin-top: -20px;
+  margin-bottom: -22px;
 }
 
 .modal-card-head {
   background-color: #fc7753;
-  color: #fc7753
+  color: #fc7753;
 }
 
 .modal-card-foot {
