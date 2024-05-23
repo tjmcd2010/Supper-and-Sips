@@ -103,10 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Function to close modal
+  // Function to close modal and clear previous search results
   function closeModal(modal) {
-    modal.style.display = 'none';
+    modal.style.display = 'none'; 
+    cocktailItemsDiv.innerHTML = '';
+    mealInfoEl.innerHTML = '';
+  
+
+
   }
+ 
 
   // Add event listeners to all close buttons
   document.querySelectorAll('.modal .delete').forEach(closeButton => {
